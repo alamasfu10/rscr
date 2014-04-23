@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>RSCR</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- styles -->
+    <link href="stylesheets/style.css" rel="stylesheet">  
+
+  </head>
+
+  <body>
+    <image src="/images/RSCR.jpg" alt="RSCR" width=200 height=150 /><br>
+    <a href="/record">Programar grabaciones</a>
+    <a href="/login">Log in</a>
+    <a href="/">Register</a>
+    
+    <hr>
+	
+	<section>
+		<%- body %>
+	</section>
+  </body>
+</html>

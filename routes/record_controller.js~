@@ -8,7 +8,7 @@ exports.index = function(req, res) {
 
 // GET /configure
 exports.configure = function(req, res) {
-  	res.render('record/configure.ejs') 
+  	res.render('configure.ejs') 
 };
 
 
@@ -34,5 +34,5 @@ exports.confirm = function(req, res) {
 	
 
 	//renders the new view
-	res.render('record/confirm.ejs'); 
+	res.render('confirm.ejs'); 
 };
