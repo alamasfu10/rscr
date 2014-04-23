@@ -1,4 +1,5 @@
 var radio = require("../lib/radio-stream");
+var fs = require ('fs');
 
 
 // GET /record
@@ -8,7 +9,7 @@ exports.index = function(req, res) {
 
 // GET /configure
 exports.configure = function(req, res) {
-  	res.render('configure.ejs') 
+  	res.render('record/configure.ejs') 
 };
 
 
@@ -24,9 +25,31 @@ exports.confirm = function(req, res) {
 	console.error(stream.headers);
 	});
 
+
+	//Now, writes in standard out (terminal)
+	//Generate an external file to save data
 	stream.on("data", function(chunk) {
-	process.stdout.write(chunk);
-	});
+	//process.stdout.write(chunk);
+
+		fs.writeFile("tmp_test.mp3", chunk, function(err) {
+			if(err) {
+				console.log(err);
+			} else {
+				console.log("mp3 file was saved!");
+			} 
+		});
+
+		fs.writeFile("tmp_test.txt", chunk, function(err) {
+			if(err) {
+				console.log(err);
+			} else {
+				console.log("txt file was saved!");
+			} 
+		});
+
+    });
+	
+	
 
 	stream.on("metadata", function(title) {
 	console.error(title);
@@ -34,5 +57,5 @@ exports.confirm = function(req, res) {
 	
 
 	//renders the new view
-	res.render('confirm.ejs'); 
+	res.render('record/confirm.ejs'); 
 };
