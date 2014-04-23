@@ -10,7 +10,9 @@
 var radio = require("../lib/radio-stream");
 var stations = require("./radioStations");
 
+//Creates a random stream to a radio url existing in radioStations.json file
 var stream = radio.createReadStream(stations.random().url);
+var stream = radio.createReadStream("http://icecast3.977music.com/comedy");
 
 // TEMPORARY
 function testFile(filename, metaint) {
