@@ -18,7 +18,8 @@ exports.configure = function(req, res) {
 exports.confirm = function(req, res) {
   	
 	
-	var stream = radio.createReadStream("http://icecast3.977music.com/comedy");
+	//var stream = radio.createReadStream("http://icecast3.977music.com/comedy");
+	var stream = radio.createReadStream("http://198.23.165.148:8888");
 
 	stream.on("connect", function() {
 	console.error("Radio Stream connected!");
@@ -31,6 +32,18 @@ exports.confirm = function(req, res) {
 	stream.on("data", function(chunk) {
 	//process.stdout.write(chunk);
 
+		
+		fs.appendFile("Salida de audio.mp3", chunk, function(err) {
+			if(err) {
+				console.log(err);
+			} else {
+				console.log("Grabando streaming de audio!");
+			} 
+		});
+	});
+
+
+/*
 		fs.writeFile("tmp_test.mp3", chunk, function(err) {
 			if(err) {
 				console.log(err);
@@ -48,7 +61,7 @@ exports.confirm = function(req, res) {
 		});
 
     });
-	
+	*/
 	
 
 	stream.on("metadata", function(title) {
