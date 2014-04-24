@@ -31,29 +31,29 @@ exports.confirm = function(req, res) {
 	
 
 	//renders the new view
-	res.render('record/confirm.ejs',{}); 
+	res.render('record/confirm.ejs',{date: date, startTime: startTime, endTime: endTime}); 
 };
 
 exports.startRecord = function (req,res){
   	
 	//var stream = radio.createReadStream("http://icecast3.977music.com/comedy");
-	var stream = radio.createReadStream("http://198.23.165.148:8888");
-	radioStream = stream;
+	radioStream = radio.createReadStream("http://198.23.165.148:8888");
+
 	
 	console.log("Trying to connect http://198.23.165.148:8888");
 	var recordPrinted = false;
 
-	stream.on("connect", function(err) {
+	radioStream.on("connect", function(err) {
 		console.log("Radio Stream connected!");
-		console.log(stream.headers);
+		console.log(radioStream.headers);
 		if(err){
 			console.log(err);
 		}
 	});
 
-	//Now, writes in standard out (terminal)
+
 	//Generate an external file to save data
-	stream.on("data", function(chunk) {
+	radioStream.on("data", function(chunk) {
 	//process.stdout.write(chunk);		
 		fs.appendFile("output.mp3", chunk, function(err) {
 			if(err) {
@@ -67,41 +67,21 @@ exports.startRecord = function (req,res){
 		});
 	});
 
-
-/*
-		fs.writeFile("tmp_test.mp3", chunk, function(err) {
-			if(err) {
-				console.log(err);
-			} else {
-				console.log("mp3 file was saved!");
-			} 
-		});
-
-		fs.writeFile("tmp_test.txt", chunk, function(err) {
-			if(err) {
-				console.log(err);
-			} else {
-				console.log("txt file was saved!");
-			} 
-		});
-
-    });
-	*/
-	
-
-	stream.on("metadata", function(title) {
+	radioStream.on("metadata", function(title) {
 		console.log(title);
 	});
 	
 
 	//renders the new view
-	res.render('index', { title: 'Initial Page' });
+	res.redirect('/', { title: 'Initial Page' });
 };
 
 
 exports.stop = function (req, res){
 	console.log("Stopping radio stream");
-	radioStream = undefined;
+	radioStream.on("end", function(){
+		console.log("No more data");	
+	});
 };
 
 

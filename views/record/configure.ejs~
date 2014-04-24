@@ -12,8 +12,6 @@ function validateForm(){
 		alert("Fecha no valida");
 		return false;
 	}
-
-	console.log("Minutes: " + now.getMinutes());
 	
 	if( (nowString == dat) && 
 		((now.getHours()>=document.getElementById("startHour").value)&&(now.getMinutes()>=document.getElementById("startMinutes").value))){ 
@@ -86,4 +84,5 @@ function validateForm(){
 
 </form>
 
+<a href="/stop"> stop </a>
 

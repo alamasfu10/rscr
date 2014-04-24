@@ -5,7 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var partials = require('express-partials');
-var partials = require('express-partials');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -41,10 +40,12 @@ app.use(partials());
 app.get('/',routes.index);
 
 app.get('/record',recordController.index);
-app.get('/configure',recordController.configure);
-app.get('/confirm',recordController.startRecord)
-app.post('/record',recordController.confirm);
-app.get('/stop',recordController.stop);
+app.get('/configure', recordController.configure);
+app.get('/confirm', recordController.startRecord)
+app.post('/record', recordController.confirm);
+app.get('/stop', recordController.stop);
+
+app.post('/invitado', sessionController.invitado);
 app.get('/login',  sessionController.new);
 app.get('/register', sessionController.new);
 //-----------------------------------------------------------------------------------------------------
