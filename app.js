@@ -9,7 +9,7 @@ var partials = require('express-partials');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-var debug = require('debug')('my-application');
+//var debug = require('debug')('my-application');
 
 var app = express();
 
@@ -42,8 +42,11 @@ app.get('/',routes.index);
 
 app.get('/record',recordController.index);
 app.get('/configure',recordController.configure);
-app.get('/confirm',recordController.confirm);
+app.get('/confirm',recordController.startRecord)
+app.post('/record',recordController.confirm);
+app.get('/stop',recordController.stop);
 app.get('/login',  sessionController.new);
+app.get('/register', sessionController.new);
 //-----------------------------------------------------------------------------------------------------
 
 
@@ -51,7 +54,7 @@ app.get('/login',  sessionController.new);
 app.set('port', process.env.PORT || 3000);
 
 var server = app.listen(app.get('port'), function() {
-  debug('Express server listening on port ' + server.address().port);
+  console.log('Express server listening on port ' + server.address().port);
 });
 
 /// catch 404 and forwarding to error handler

@@ -13,14 +13,16 @@
 
     <!-- styles -->
     <link href="stylesheets/style.css" rel="stylesheet">  
+    <link href="stylesheets/htmlDatePicker.css" rel="stylesheet" />
 
   </head>
 
   <body>
-    <image src="/images/RSCR.jpg" alt="RSCR" width=200 height=150 /><br>
+    <a href="/"><image src="/images/RSCR.jpg" alt="RSCR" width=200 height=150 />RSCR</a>
+	<br>
     <a href="/record">Programar grabaciones</a>
-    <a href="/login">Log in</a>
-    <a href="/">Register</a>
+    <a href="/login" >Log in</a>
+    <a href="/register">Register</a>
     
     <hr>
 	
